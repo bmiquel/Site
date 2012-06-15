@@ -180,8 +180,5 @@ app/config/parameters.ini
 vendor/*
 web/uploads/*
 web/bundles/*
-web/css/*
-web/images/*
-web/js/*
 *.php~
 web/media/cache/*
