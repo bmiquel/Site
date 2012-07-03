@@ -1,0 +1,11 @@
+{% extends "MiquelSiteBundle::base.html.twig" %}
+
+{% block body %}
+
+<div class="container">
+   <h1>Affichage du lien n°{{ link.id }}</h1>
+   <p>{{ link.url }}</p>
+   <p>{{ link.description }}</p>
+</div>
+   
+{% endblock %}

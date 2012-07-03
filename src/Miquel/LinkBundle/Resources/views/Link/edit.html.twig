@@ -1,0 +1,12 @@
+{% extends "::base.html.twig" %}
+
+{% block body %}
+
+<div class="container">
+   <h1>Edition du lien n°{{ link.id }}</h1>
+   
+   {% include "MiquelLinkBundle:Link:formulaire.html.twig" %}
+   
+</div>
+   
+{% endblock %}

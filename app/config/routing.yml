@@ -1,3 +1,11 @@
+MiquelSiteBundle:
+    resource: "@MiquelSiteBundle/Resources/config/routing.yml"
+    prefix:   /
+
+MiquelLinkBundle:
+    resource: "@MiquelLinkBundle/Resources/config/routing.yml"
+    prefix:   /links
+
 # Internal routing configuration to handle ESI
 #_internal:
 #   resource: "@FrameworkBundle/Resources/config/routing/internal.xml"

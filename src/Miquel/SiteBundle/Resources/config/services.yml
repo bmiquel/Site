@@ -1,0 +1,7 @@
+parameters:
+#    miquel_site.example.class: Miquel\SiteBundle\Example
+
+services:
+#    miquel_site.example:
+#        class: %miquel_site.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

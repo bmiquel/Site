@@ -1,0 +1,27 @@
+MiquelLinkBundle_home:
+    pattern:  /{page}
+    defaults: { _controller: MiquelLinkBundle:Link:index, page: 1 }
+    requirements:
+        page: \d+
+        
+MiquelLinkBundle_show:
+    pattern: /show/{id}
+    defaults: { _controller:MiquelLinkBundle:Link:show }
+    requirements:
+        id: \d+
+    
+MiquelLinkBundle_create:
+    pattern:  /create
+    defaults: { _controller: MiquelLinkBundle:Link:create }
+    
+MiquelLinkBundle_edit:
+    pattern:  /edit/{id}
+    defaults: { _controller: MiquelLinkBundle:Link:edit }
+    requirements: 
+        id: \d+
+    
+MiquelLinkBundle_delete:
+    pattern:  /delete/{id}
+    defaults: { _controller: MiquelLinkBundle:Link:delete }
+    requirements:
+        id: \d+

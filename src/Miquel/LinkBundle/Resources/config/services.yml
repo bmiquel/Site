@@ -1,0 +1,7 @@
+parameters:
+#    miquel_link.example.class: Miquel\LinkBundle\Example
+
+services:
+#    miquel_link.example:
+#        class: %miquel_link.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

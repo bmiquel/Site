@@ -1,0 +1,47 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="fr"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="fr"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="fr"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="fr"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+   <meta name="viewport" content="width=device-width">
+   
+	<title>{% block title %}{% endblock %}</title>
+
+   {% stylesheets filter='cssrewrite'
+       '@MiquelLinkBundle/Resources/public/css/style.css'
+   %}
+      <link href="{{ asset_url }}" rel="stylesheet" />
+   {% endstylesheets %}
+   
+	<link rel="stylesheet/less" href="{{ asset('less/style.less') }}">
+   <script type="text/javascript" src="{{ asset('js/libs/less-1.3.0.min.js') }}"></script>
+   
+	
+   {% block stylesheets %}{% endblock %}
+   
+   <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
+</head>
+
+<body>
+<!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
+
+   {% block body %}{% endblock %}
+   
+   {% javascripts
+      '@MiquelLinkBundle/Resources/public/js/libs/jquery-1.7.2.min.js'
+      '@MiquelLinkBundle/Resources/public/js/libs/bootstrap/bootstrap.min.js'
+      '@MiquelLinkBundle/Resources/public/js/libs/modernizr-2.5.3-respond-1.1.0.min.js'
+      '@MiquelLinkBundle/Resources/public/js/script.js'
+   %}
+      <script type="text/javascript" src="{{ asset_url }}"></script>
+   {% endjavascripts %}
+ 
+   
+   {% block javascripts %}{% endblock %}
+</body>
+</html>
