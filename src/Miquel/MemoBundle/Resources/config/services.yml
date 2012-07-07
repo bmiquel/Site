@@ -1,0 +1,7 @@
+parameters:
+#    miquel_memo.example.class: Miquel\MemoBundle\Example
+
+services:
+#    miquel_memo.example:
+#        class: %miquel_memo.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

@@ -1,0 +1,38 @@
+{% extends "MiquelMemoBundle::layout.html.twig" %}
+
+{% block title %}
+	{{ parent() }} | Mémos Techniques
+{% endblock %}
+
+{% block appbody %}
+
+<section class="header">
+	<h1>Fiches ayant la catégorie {{ categorie.nom }}</h1>
+</section>
+
+<div class="well">
+   <table class="table table-condensed table-striped">
+      <thead>
+         <tr>
+            <th>Titre</th>
+            <th>Catégories</th>
+            <th>Auteur</th>
+         </tr>
+      </thead>
+      <tbody>
+         {% for fiche in listeFiches %}
+            <tr>
+               <td><a href="{{ path('MiquelMemo_FicheVoir', {'id': fiche.id}) }}">{{ fiche.titre }}</a></td>
+               <td>
+                  {% for categorie in fiche.categories %}
+                     <span class="label label-info">{{ categorie.nom }}</span>	
+                  {% endfor %}
+               </td>
+               <td>{{ fiche.auteur }}</td>
+            </tr>   
+         {% endfor %}
+      </tbody>
+   </table>
+</div>
+
+{% endblock %}

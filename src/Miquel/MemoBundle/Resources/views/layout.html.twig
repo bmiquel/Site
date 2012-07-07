@@ -1,0 +1,24 @@
+{% extends "MiquelSiteBundle::base.html.twig" %}
+
+{% block body %}
+
+<div class="container-fluid">
+   <div class="row-fluid">
+      <div class="span2">
+      <!--Sidebar content-->
+      
+         {% block appnavigation %}
+            {% include "MiquelMemoBundle:Default:appnavigation.html.twig" %}
+         {% endblock %}
+      
+      </div>
+      <div class="span9">
+      <!--Body content-->
+      
+         {% block appbody %}{% endblock %}
+      
+      </div>
+   </div>
+</div>
+
+{% endblock %}

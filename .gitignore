@@ -177,5 +177,6 @@ app/config/parameters.ini
 vendor/*
 web/uploads/*
 web/bundles/*
+web/*
 *.php~
 web/media/cache/*

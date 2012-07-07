@@ -1,0 +1,63 @@
+# Routes générales du bundle
+MiquelMemo_Accueil:
+    pattern: /
+    defaults: { _controller: MiquelMemoBundle:Memo:index }
+
+MiquelMemo_Aide:
+    pattern: /aide
+    defaults: { _controller: MiquelMemoBundle:Memo:aide }
+
+
+# Routes concernant les Fiches
+MiquelMemo_FicheAccueil:
+    pattern:   /fiche/
+    defaults:  { _controller: MiquelMemoBundle:Fiche:index }
+
+MiquelMemo_FicheVoir:
+    pattern:   /fiche/{id}
+    defaults:  { _controller: MiquelMemoBundle:Fiche:voir }
+    requirements:
+        id:  \d+
+
+MiquelMemo_FicheAjouter:
+    pattern:   /ajouter
+    defaults:  { _controller: MiquelMemoBundle:Fiche:ajouter }
+
+MiquelMemo_FicheModifier:
+    pattern:   /modifier/{id}
+    defaults:  { _controller: MiquelMemoBundle:Fiche:modifier }
+    requirements:
+        id:  \d+
+
+MiquelMemo_FicheSupprimer:
+    pattern:   /supprimer/{id}
+    defaults:  { _controller: MiquelMemoBundle:Fiche:supprimer }
+    requirements:
+        id:  \d+
+
+# Routes concernant les catégories
+MiquelMemo_CategorieAccueil:
+    pattern: /categorie/
+    defaults: { _controller: MiquelMemoBundle:Categorie:index }
+    
+MiquelMemo_CategorieAjouter:
+    pattern:   /categorie/ajouter
+    defaults:  { _controller: MiquelMemoBundle:Categorie:ajouter }
+    
+MiquelMemo_CategorieVoir:
+    pattern:   /categorie/{id}
+    defaults:  { _controller: MiquelMemoBundle:Categorie:voir }
+    requirements:
+        id:  \d+
+        
+MiquelMemo_CategorieModifier:
+    pattern:   /categorie/modifier/{id}
+    defaults:  { _controller: MiquelMemoBundle:Categorie:modifier }
+    requirements:
+        id:  \d+
+        
+MiquelMemo_CategorieSupprimer:
+    pattern:   /categorie/supprimer/{id}
+    defaults:  { _controller: MiquelMemoBundle:Categorie:supprimer }
+    requirements:
+        id:  \d+

@@ -1,0 +1,25 @@
+{% extends "MiquelMemoBundle::layout.html.twig" %}
+
+{% block title %}
+	{{ parent() }} | Mémos Techniques
+{% endblock %}
+
+{% block appbody %}
+
+	<section class="header">
+		<h1>{{ fiche.titre }}</h1>
+		<em>Par {{ fiche.auteur }}, le {{ fiche.dateCreation|date('d/m/Y') }}</em> | 
+		
+      {% for categorie in fiche.categories %}
+         {% if loop.last %}
+            <span class="label label-info">{{ categorie.nom }}</span>	
+         {% else %}
+            <span class="label label-info">{{ categorie.nom }}</span> |
+         {% endif %}  
+      {% endfor %}
+	</section>
+
+	<p class="well text-justify" id="fiche-contenu">{{ fiche.contenu|nl2br }}</p>
+
+
+{% endblock %}

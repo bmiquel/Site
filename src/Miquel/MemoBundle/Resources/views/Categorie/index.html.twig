@@ -1,0 +1,29 @@
+{% extends "MiquelMemoBundle::layout.html.twig" %}
+
+{% block title %}
+	{{ parent() }} | Mémos Techniques - Accueil
+{% endblock %}
+
+{% block appbody %}
+	
+   <section class="header">
+      <h1>Liste des catégories</h1>
+   </section>
+   
+   <div class="well">
+      <div class="row-fluid">
+         {% for categorie in categories %}
+         
+            {% if loop.index / 7 == 1 %}
+               </div><div class="row-fluid">
+            {% endif %}
+            
+            <div class="span2 well well-categorie data-href-url" data-href="{{ path('MiquelMemo_CategorieVoir', {'id': categorie.id}) }}">
+               <h4>{{ categorie.nom }}</h4>
+            </div>
+         {% endfor %}
+
+      </div>
+   </div>
+
+{% endblock %}

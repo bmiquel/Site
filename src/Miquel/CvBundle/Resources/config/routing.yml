@@ -1,0 +1,7 @@
+miquelcv_accueil:
+    pattern:  /
+    defaults: { _controller: MiquelCvBundle:Cv:index }
+
+miquelcv_voir:
+    pattern:  /afficher
+    defaults: { _controller: MiquelCvBundle:Cv:show }

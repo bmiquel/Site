@@ -1,0 +1,7 @@
+parameters:
+#    miquel_cv.example.class: Miquel\CvBundle\Example
+
+services:
+#    miquel_cv.example:
+#        class: %miquel_cv.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

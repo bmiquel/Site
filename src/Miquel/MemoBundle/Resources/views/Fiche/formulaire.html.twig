@@ -1,0 +1,49 @@
+<form method="post" {{ form_enctype(form) }}>
+	
+	<!-- Les erreurs générales du formulaire. -->
+	{{ form_errors(form) }}
+
+	<div class="row-fluid">
+		<div class="span12">
+			<!-- Génération du label. -->
+			{# {{ form_label(form.titre, "Titre de la fiche") }} #}
+
+			<!-- Affichage des erreurs pour ce champ précis. -->
+			{{ form_errors(form.titre) }}
+
+			<!-- Génération de l'input. -->
+			{{ form_widget(form.titre) }}
+		</div>
+	<div>
+	<div class="row-fluid">
+		<div class="span12">
+			{{ form_errors(form.contenu) }}
+			{{ form_widget(form.contenu) }}
+		</div>
+	</div>
+	<div class="row-fluid">
+		<div class="span4">
+			{{ form_errors(form.categories) }}
+			{{ form_widget(form.categories) }}
+		</div>
+		<div class="span4">
+			{{ form_errors(form.auteur) }}
+			{{ form_widget(form.auteur) }}
+		</div>
+		<div class="span4">
+			{{ form_errors(form.dateCreation) }}
+			{{ form_widget(form.dateCreation) }}
+		</div>
+	</div>
+
+
+	<!-- Génération des champs pas encore écrits.
+		 Dans cet exemple, ça serait  le champ CSRF (géré automatiquement par Symfony !)
+		 et tous les champs cachés (type « hidden »). -->
+	{{ form_rest(form) }}
+	
+   <div align="center">
+      <input class="btn btn-primary btn-large" value="Enregistrer" type="submit" />
+      <input class="btn btn-large" value="Réinitialiser" type="reset" />
+   </div>
+</form>

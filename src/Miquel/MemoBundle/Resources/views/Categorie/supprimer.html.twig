@@ -1,0 +1,22 @@
+{% extends "MiquelMemoBundle::layout.html.twig" %}
+
+{% block title %}
+	{{ parent() }} | Mémos Techniques
+{% endblock %}
+
+{% block appbody %}
+
+   <section class="header"></section>
+	<div class="alert alert-error">
+		<h4 class="alert-heading">Suppression de la Catégorie</h4>
+		<br />
+		<p>La suppresion de cette catégorie sera <strong>définitive</strong>.<br />Êtes-vous certain de vouloir réaliser cette action ?</p>
+		
+		
+		{% include "MiquelMemoBundle:Catégorie:confirmation.html.twig" %}
+		
+		
+	</div>
+	
+
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends "MiquelMemoBundle::layout.html.twig" %}
+
+{% block title %}
+	{{ parent() }} | Mémos Techniques
+{% endblock %}
+
+{% block appbody %}
+
+	<section class="header">
+      <h1>Modification de la Fiche</h1>
+   </section>
+   
+   <div class="well">
+      {% include "MiquelMemoBundle:Fiche:formulaire.html.twig" %}
+   </div>
+	
+
+{% endblock %}

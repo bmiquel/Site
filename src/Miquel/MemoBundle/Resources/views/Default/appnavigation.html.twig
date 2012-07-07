@@ -1,0 +1,30 @@
+<div class="appnavigation well">
+   <ul class="nav nav-list">
+      <li class="nav-header">Mémos</li>
+      <li><a href="{{ path('MiquelMemo_Accueil') }}"><i class="icon-home"></i> Accueil</a></li>
+      <li class="nav-header">Création... </li>
+      <li><a href="{{ path('MiquelMemo_FicheAjouter') }}"><i class="icon-file"></i> d'une fiche</a></li>
+      <li><a href="{{ path('MiquelMemo_CategorieAjouter') }}"><i class="icon-tag"></i> d'une catégorie</a></li>
+      <li class="nav-header">Affichage... </li>
+      <li><a href="{{ path('MiquelMemo_FicheAccueil') }}"><i class="icon-list"></i> des fiches</a></li>
+      <li><a href="{{ path('MiquelMemo_CategorieAccueil') }}"><i class="icon-list"></i> des catégories</a></li>
+      
+   {% if fiche.id is defined %}
+      <li class="divider"></li>
+      <li class="nav-header">Options</li>
+      <li><a href="{{ path('MiquelMemo_FicheModifier', {'id': fiche.id}) }}"><i class="icon-edit"></i> Modifier</a></li>
+      <li><a href="{{ path('MiquelMemo_FicheSupprimer', {'id': fiche.id}) }}"><i class="icon-remove"></i> Supprimer</a></li>
+   {% endif %}
+   
+   {% if categorie.id is defined %}
+      <li class="divider"></li>
+      <li class="nav-header">Options</li>
+      <li><a href="{{ path('MiquelMemo_CategorieModifier', {'id': categorie.id}) }}"><i class="icon-edit"></i> Modifier</a></li>
+      <li><a href="{{ path('MiquelMemo_CategorieSupprimer', {'id': categorie.id}) }}"><i class="icon-remove"></i> Supprimer</a></li>
+   {% endif %}
+      
+      
+      <li class="divider"></li>
+      <li><a href="{{ path('MiquelMemo_Aide') }}"><i class="icon-flag"></i> Aide</a></li>
+   </ul>
+</div>

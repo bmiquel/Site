@@ -1,0 +1,56 @@
+{% extends "MiquelMemoBundle::layout.html.twig" %}
+
+{% block title %}
+	{{ parent() }} | Mémos Techniques - Accueil
+{% endblock %}
+
+{% block appbody %}
+
+   <section class="header">
+      <h1>Liste des fiches</h1>
+   </section>
+
+
+	{% if fiches|length %}
+
+      <div class="well">
+         <table class="table table-condensed table-striped">
+            <thead>
+               <tr>
+                  <th>Titre</th>
+                  <th>Catégories</th>
+                  <th>Auteur</th>
+               </tr>
+            </thead>
+            <tbody>
+            
+            {% for fiche in fiches %}
+               <tr>
+                  <td><a href="{{ path('MiquelMemo_FicheVoir', {'id': fiche.id}) }}">{{ fiche.titre }}</a></td>
+                  <td>
+                     {% for categorie in fiche.categories %}
+                        <span class="label label-info">{{ categorie.nom }}</span>	
+                     {% endfor %}
+                  </td>
+                  <td>{{ fiche.auteur }}</td>
+               </tr>   
+            {% endfor %}
+            
+            </tbody>
+         </table>
+      </div>
+		
+	{% else %}	
+
+   <div class="alert alert-error">
+      <h4 class="alert-heading">Hey ! Toi là ! Oui toi !</h4>
+      <br />
+      Je peux comprendre que tu trouve cette interface simple, magnifique et intuitive, mais il est temps de penser à créer des fiches qui te seront utiles !<br />
+      Donc tu prends ton courage à deux mains, tu t'y mets !<br /><br />
+      Tu verras, on y prend presque du plaisir, surtout quand on retrouve une fiche qui nous sauve la vie ! :)<br /><br />
+      <strong>Pssst</strong>, si jamais tu as besoin d'aide, regardes dans le menu de gauche ;)
+   </div>
+	
+	{% endif %}
+
+{% endblock %}

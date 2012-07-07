@@ -1,3 +1,3 @@
-MiquelSiteBundle_homepage:
+miquelsite_accueil:
     pattern:  /
-    defaults: { _controller: MiquelSiteBundle:Default:index }
+    defaults: { _controller: MiquelSiteBundle:Site:index }
