@@ -1,6 +1,18 @@
-<form method="post" {{ form_enctype(form) }}>
-	
-	{{ form_widget(form) }}
-	
-	<input type="submit" />
+
+<form class="form-inline" method="post" {{ form_enctype(form) }}>
+
+   <!-- Les erreurs générales du formulaire. -->
+   {{ form_errors(form) }}
+   {{ form_errors(form.url) }}
+   {{ form_errors(form.description) }}
+   
+   <div class="row-fluid">
+      <div class="span6">{{ form_widget(form.url) }}</div>
+      <div class="span6">{{ form_widget(form.description) }}</div>
+   </div>
+   
+   {{ form_widget(form) }}
+   
+   <br />
+   <button type="submit" class="btn btn-primary">Enregistrer les modifications</button>
 </form>

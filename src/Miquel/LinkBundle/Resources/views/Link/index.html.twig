@@ -1,11 +1,43 @@
-{% extends "::base.html.twig" %}
+{% extends "MiquelLinkBundle::layout.html.twig" %}
 
-{% block body %}
+{% block appbody %}
 
-<div class="container">
-   <h1>Liste des sites utiles</h1>
+   <section class="header">
+      <h1>Liste des sites utiles</h1>
+   </section>
 
-   <p>Nous trouverons la liste des liens interessants avec comme numero de page : {{ page }}</p>
-</div>
+   <div class="well">
+      <section id="formulaire-link">
+         {% include "MiquelLinkBundle:Link:formulaire.html.twig" %}
+      </section>
+      
+      <hr />
+      
+      <div>
+        <input type="text" class="span12" placeholder="Faire une recherche dans les liens (url ou description)" />
+      </div>
+      
+      <hr />
+      
+      <section id="links">
+         {% for lien in liens %}
+         
+         <blockquote>
+            <p>{{ lien.description }}</p>
+            <small><a href="{{ lien.url }}">{{ lien.url }}</a></small>
+            <div class="btn-group pull-right">
+               <a class="btn btn-mini" href="#"><i class="icon-cog"></i> Actions</a>
+               <a class="btn btn-mini dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
+               <ul class="dropdown-menu">
+                  <li><a href="{{ path('MiquelLink_Modifier', { 'id': lien.id }) }}"><i class="icon-edit"></i> Modifier</a></li>
+                  <li><a href="{{ path('MiquelLink_Supprimer', { 'id': lien.id }) }}"><i class="icon-trash"></i> Supprimer</a></li>
+               </ul>
+            </div>
+         </blockquote>
+
+         {% endfor %}
+      </section>
+   </div>
+
    
 {% endblock %}

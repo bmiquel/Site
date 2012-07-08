@@ -14,14 +14,7 @@ use Miquel\LinkBundle\Form\LinkType;
 
 class LinkController extends Controller
 {
-    public function indexAction($page)
-    {
-        return $this->render('MiquelLinkBundle:Link:index.html.twig', array(
-            'page'  => $page
-        ));
-    }
-    
-    public function createAction()
+    public function indexAction()
     {
         
         $link = new Link();
@@ -29,32 +22,24 @@ class LinkController extends Controller
         // On crée le formulaire
         $form = $this->createForm(new LinkType, $link);
         
-        // On crée le gestionnaire pour ce formulaire, avec les outils dont il a besoin
+        $liens = $this->getDoctrine()->getEntityManager()->getRepository('MiquelLinkBundle:Link')->findAll();
+        
+         // On crée le gestionnaire pour ce formulaire, avec les outils dont il a besoin
         $formHandler = new LinkHandler($form, $this->get('request'), $this->getDoctrine()->getEntityManager());
 
          // On exécute le traitement du formulaire. S'il retourne true, alors le formulaire a bien été traité
         if ($formHandler->process())
         {
-            return $this->redirect( $this->generateUrl('MiquelLinkBundle_show', array('id' => $link->getId())) );
+            return $this->redirect( sprintf('%s#%s', $this->generateUrl('MiquelLink_Accueil'), $link->getId()) );
         }
-            
-            
-        // On passe la méthode createView() du formulaire à la vue
-        // afin qu'elle puisse afficher le formulaire toute seule.
-        return $this->render('MiquelLinkBundle:Link:create.html.twig', array(
+        
+        return $this->render('MiquelLinkBundle:Link:index.html.twig', array(
             'form' => $form->createView(),
-        ));
-       
-    }
-    
-    public function showAction(Link $link)
-    {
-        return $this->render('MiquelLinkBundle:Link:show.html.twig', array(
-            'link' => $link
+            'liens' => $liens
         ));
     }
-    
-    public function editAction(Link $link)
+        
+    public function modifierAction(Link $link)
     {
         // On crée le formulaire
         $form = $this->createForm(new LinkType, $link);
@@ -65,17 +50,23 @@ class LinkController extends Controller
          // On exécute le traitement du formulaire. S'il retourne true, alors le formulaire a bien été traité
         if ($formHandler->process())
         {
-            return $this->redirect( $this->generateUrl('MiquelLinkBundle_show', array('id' => $link->getId())) );
+            return $this->redirect( $this->generateUrl('MiquelLink_Voir', array('id' => $link->getId())) );
         }
         
-        return $this->render('MiquelLinkBundle:Link:edit.html.twig', array(
+        return $this->render('MiquelLinkBundle:Link:modifier.html.twig', array(
             'form' => $form->createView(),
             'link' => $link,
         ));
     }
     
-    public function deleteAction()
+    public function supprimerAction(Link $link)
     {
-        return new Response("Page de suppression");
+        // On récupère l'EntityManager
+		$em = $this->getDoctrine()->getEntityManager();
+		$em->remove($link);
+		$em->flush();
+	
+		// Puis on redirige vers l'accueil.
+		return $this->redirect( $this->generateUrl('MiquelLink_Accueil') );
     }
 }

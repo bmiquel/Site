@@ -1,7 +1,7 @@
 # Routes générales du bundle
 MiquelMemo_Accueil:
     pattern: /
-    defaults: { _controller: MiquelMemoBundle:Memo:index }
+    defaults: { _controller: MiquelMemoBundle:Fiche:index }
 
 MiquelMemo_Aide:
     pattern: /aide

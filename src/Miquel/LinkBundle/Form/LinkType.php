@@ -10,8 +10,8 @@ class LinkType extends AbstractType
     public function buildForm(FormBuilder $builder, array $options)
     {
 	    $builder
-            ->add('url', 'url', array('label' => 'Adresse du site'))
-            ->add('description', 'textarea');
+            ->add('url', 'url', array('attr' => array('class' => 'span12', 'placeholder' => 'Lien du site')))
+            ->add('description', 'text', array('attr' => array('class' => 'span12', 'placeholder' => 'Description')));
     }
 
     public function getName()

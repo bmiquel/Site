@@ -1,27 +1,25 @@
-MiquelLinkBundle_home:
-    pattern:  /{page}
-    defaults: { _controller: MiquelLinkBundle:Link:index, page: 1 }
-    requirements:
-        page: \d+
+MiquelLink_Accueil:
+    pattern:  /
+    defaults: { _controller: MiquelLinkBundle:Link:index }
         
-MiquelLinkBundle_show:
-    pattern: /show/{id}
-    defaults: { _controller:MiquelLinkBundle:Link:show }
+MiquelLink_Voir:
+    pattern: /voir/{id}
+    defaults: { _controller:MiquelLinkBundle:Link:voir }
     requirements:
         id: \d+
     
-MiquelLinkBundle_create:
-    pattern:  /create
-    defaults: { _controller: MiquelLinkBundle:Link:create }
+MiquelLink_Ajouter:
+    pattern:  /ajouter
+    defaults: { _controller: MiquelLinkBundle:Link:ajouter }
     
-MiquelLinkBundle_edit:
-    pattern:  /edit/{id}
-    defaults: { _controller: MiquelLinkBundle:Link:edit }
+MiquelLink_Modifier:
+    pattern:  /modifier/{id}
+    defaults: { _controller: MiquelLinkBundle:Link:modifier }
     requirements: 
         id: \d+
     
-MiquelLinkBundle_delete:
-    pattern:  /delete/{id}
-    defaults: { _controller: MiquelLinkBundle:Link:delete }
+MiquelLink_Supprimer:
+    pattern:  /supprimer/{id}
+    defaults: { _controller: MiquelLinkBundle:Link:supprimer }
     requirements:
         id: \d+

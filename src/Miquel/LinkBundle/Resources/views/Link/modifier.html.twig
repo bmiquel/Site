@@ -1,0 +1,15 @@
+{% extends "MiquelLinkBundle::layout.html.twig" %}
+
+{% block appbody %}
+
+
+<section class="header">
+   <h1>Edition du lien n°{{ link.id }}</h1>
+</section>
+   
+   <div class="well">
+      {% include "MiquelLinkBundle:Link:formulaire.html.twig" %}
+   </div>
+
+   
+{% endblock %}
